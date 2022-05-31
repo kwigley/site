@@ -1,0 +1,9 @@
+node_modules
+
+/.cache
+/functions/\[\[path\]\].js
+/functions/\[\[path\]\].js.map
+/public/build
+/public/fonts
+/app/styles/dist.css
+.env
