@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
 import Biography from "~/content/Biography.mdx";
 import { Markdown } from "~/components/Markdown";
+import { SmartLink } from "~/components/SmartLink";
 import { generateMeta } from "~/utils/generateMeta";
 
 export const meta: MetaFunction = ({ location: { pathname: path } }) => {
@@ -14,31 +15,68 @@ export default function Index() {
   return (
     <>
       <main className="overflow-hidden">
-        <div className="py-24 lg:py-32">
-          <div className="relative z-10 max-w-7xl mx-auto pl-4 pr-8 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
-              Kyle Wigley
-            </h1>
-            <p className="mt-6 text-xl text-gray-500 dark:text-gray-400 max-w-3xl">
-              Software Engineer
-            </p>
+        <div className="relative z-10 max-w-sm mx-auto pt-48">
+          <h1 className="text-4xl tracking-tight text-gray-900 dark:text-white">
+            Hey, I'm <span className="font-bold">Kyle</span> 👋
+          </h1>
+          <section aria-labelledby="about-me">
+            <div className="py-6 mt-6 prose dark:prose-invert prose-md">
+              <Markdown contents={Biography} />
+            </div>
+          </section>
+          <div className="grid grid-cols-2">
+            <section aria-labelledby="social-links">
+              <div className="py-6 prose dark:prose-invert uppercase text-xs">
+                Social
+              </div>
+              <ul className="prose dark:prose-invert text-sm">
+                <li>
+                  <SmartLink href="mailto:&#104;&#101;&#121;&#64;&#107;&#121;&#108;&#101;&#119;&#105;&#103;&#115;&#46;&#99;&#111;&#109;">
+                    email
+                  </SmartLink>
+                </li>
+                <li>
+                  <SmartLink href="https://linkedin.com/in/kylewigley">
+                    linkedin
+                  </SmartLink>
+                </li>
+                <li>
+                  <SmartLink href="https://twitter.com/kylewigs">
+                    twitter
+                  </SmartLink>
+                </li>
+                <li>
+                  <SmartLink href="https://github.com/kwigley">
+                    github
+                  </SmartLink>
+                </li>
+              </ul>
+            </section>
+
+            <section aria-labelledby="projects">
+              <div className="py-6 prose dark:prose-invert uppercase text-xs">
+                Projects
+              </div>
+              <ul className="prose dark:prose-invert text-sm">
+                <li>
+                  <SmartLink href="https://github.com/kwigley/dots">
+                    dots
+                  </SmartLink>
+                </li>
+                <li>
+                  <SmartLink href="https://github.com/kwigley/nvim-dots">
+                    nvim-dots
+                  </SmartLink>
+                </li>
+                <li>
+                  <SmartLink href="https://github.com/kwigley/changes">
+                    changes
+                  </SmartLink>
+                </li>
+              </ul>
+            </section>
           </div>
         </div>
-        <section aria-labelledby="about-me">
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16">
-            <div className="max-w-7xl mx-auto lg:ml-auto">
-              <h2
-                id="about-me"
-                className="text-3xl font-extrabold text-gray-900 dark:text-white"
-              >
-                About Me
-              </h2>
-              <div className="mt-6 prose dark:prose-invert prose-lg">
-                <Markdown contents={Biography} />
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
     </>
   );
