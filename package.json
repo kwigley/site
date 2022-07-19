@@ -3,6 +3,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "prettier": "prettier --ignore-path .gitignore .",
     "eslint": "eslint --ignore-path .gitignore --ext .js,.ts,.jsx,.tsx app",
