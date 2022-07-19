@@ -3,8 +3,8 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "prepare": "husky install",
+    "preinstall": "is-ci || npx only-allow pnpm",
+    "prepare": "is-ci || husky install",
     "prettier": "prettier --ignore-path .gitignore .",
     "eslint": "eslint --ignore-path .gitignore --ext .js,.ts,.jsx,.tsx app",
     "fix:format": "npm run prettier -- --write",
@@ -57,6 +57,7 @@
     "concurrently": "^7.3.0",
     "eslint": "^8.20.0",
     "husky": "^8.0.1",
+    "is-ci": "^3.0.1",
     "lint-staged": "^12.5.0",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.6",
